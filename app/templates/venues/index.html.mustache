@@ -1,0 +1,24 @@
+<div id='index'>
+  <h1>HorseFinder</h1>
+  <div>
+    <form action='/' method='get'>
+      <fieldset class='form-group'>
+        <label>Find Nearest Racecourse</label>
+        <input type="text" name='postcode' class="form-control" value="{{{ postcode }}}" autocomplete='off'>
+      </fieldset class='form-group'>
+      <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+  </div>
+
+  <div id='results'>
+    <h2>Results for {{{ postcode }}}</h2>
+
+    {{# venues}}
+      <dl>
+        <dt>{{ name }}</dt>
+        <dd>{{ address }} </dd>
+      </dl>
+    {{/ venues}}
+
+  </div>
+</div>
