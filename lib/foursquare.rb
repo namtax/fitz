@@ -2,7 +2,7 @@ module Foursquare
   extend self
 
   SEARCH_QUERY = 'racecourse'
-  LIMIT = 2
+  LIMIT = 5
 
   def uri_base
     "https://api.foursquare.com"

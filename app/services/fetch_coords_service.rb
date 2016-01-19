@@ -1,8 +1,16 @@
 class FetchCoordsService
   def self.run(postcode)
-    response  = connection.get(uri_path % escape(postcode))
-    coords    = ::Coords.new(response)
-    coords.to_h
+    response = connection.get(uri_path % escape(postcode))
+    errors   = []
+
+    if response.code == '200'
+      coords = ::Coords.new(response)
+      result = coords.to_h
+    else
+      errors << 'Please supply a valid postcode'
+    end
+
+    ServiceResponse.new(result: result, errors: errors)
   end
 
   def self.connection
@@ -18,7 +26,7 @@ class FetchCoordsService
   end
 
   def self.uri_path
-    "/postcodes?q=%s"
+    "/postcodes/%s"
   end
 
   def self.escape(string)

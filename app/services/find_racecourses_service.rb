@@ -2,9 +2,17 @@ module FindRacecoursesService
   extend self
 
   def run(postcode)
-    coords   = FetchCoordsService.run(postcode)
-    response = connection.get(Foursquare.uri_path(coords))
-    Venue.create(response.body)
+    outcome = FetchCoordsService.run(postcode)
+    errors  = []
+
+    if (postcode.empty? || !outcome.valid?)
+      errors << 'Please supply a valid postcode'
+    else
+      response = connection.get(Foursquare.uri_path(outcome.result))
+      result   = Venue.create(response.body)
+    end
+
+    ServiceResponse.new(result: result, errors: errors)
   end
 
   def connection

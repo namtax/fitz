@@ -17,7 +17,7 @@ class Venue
   end
 
   def address
-    location['formattedAddress']
+    location['formattedAddress'].join(', ')
   end
 
   def lat

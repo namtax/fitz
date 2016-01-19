@@ -7,7 +7,7 @@ describe Venue do
 
     context 'top response' do
       let(:venue)   { subject.create(json).first }
-      let(:address) { ["Portsmouth Road", "Esher", "Surrey", "KT10 9AJ", "United Kingdom"] }
+      let(:address) { "Portsmouth Road, Esher, Surrey, KT10 9AJ, United Kingdom" }
 
       it 'returns expected data' do
         expect(venue.name).to eq 'Sandown Park Racecourse'
@@ -19,7 +19,7 @@ describe Venue do
 
     context 'second response' do
       let(:venue)   { subject.create(json).last }
-      let(:address) { ["75 High Holborn", "London", "Greater London", "WC1V 6LS.", "United Kingdom"] }
+      let(:address) { "75 High Holborn, London, Greater London, WC1V 6LS., United Kingdom" }
 
       it 'returns expected data' do
         expect(venue.name).to eq 'Racecourse Association'

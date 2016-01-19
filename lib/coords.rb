@@ -16,7 +16,7 @@ class Coords
   end
 
   def fetch_result
-    body['result'].first
+    body['result']
   end
 
   def latitude
