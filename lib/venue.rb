@@ -20,6 +20,10 @@ class Venue
     location['formattedAddress'].join(', ')
   end
 
+  def coords
+    [lat,long].join(',')
+  end
+
   def lat
     location['lat']
   end

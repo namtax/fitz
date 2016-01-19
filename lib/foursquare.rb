@@ -3,6 +3,7 @@ module Foursquare
 
   SEARCH_QUERY = 'racecourse'
   LIMIT = 5
+  INTENT = 'checkin'
 
   def uri_base
     "https://api.foursquare.com"
@@ -19,7 +20,8 @@ module Foursquare
         [:client_secret, foursquare_client_secret],
         [:v, foursquare_version],
         [:query, SEARCH_QUERY],
-        [:limit, LIMIT]
+        [:limit, LIMIT],
+        [:inent, INTENT]
       ]
     ].to_query
   end

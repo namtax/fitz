@@ -16,6 +16,7 @@ describe FindRacecoursesService do
         it 'returns expected data' do
           expect(venue.name).to eq 'Sandown Park Racecourse'
           expect(venue.address).to eq address
+          expect(venue.coords).to eq '51.373280620643364,-0.3618192672729492'
         end
       end
 
@@ -26,6 +27,7 @@ describe FindRacecoursesService do
         it 'returns expected data' do
           expect(venue.name).to eq 'Racecourse Association'
           expect(venue.address).to eq address
+          expect(venue.coords).to eq '51.51779635241522,-0.11784553527832031'
         end
       end
     end
